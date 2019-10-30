@@ -1,0 +1,41 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">People</h5>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let person of people; let i = index"
+        (click)="selectPerson(i)"
+        [ngClass]="{ active: person === currentPerson }"
+      >
+        {{ person.name }}
+      </li>
+    </ul>
+
+    <div class="container-fluid" style="margin-top: 10px;">
+      <div class="row">
+        <div class="col-8" style="padding-left: 0">
+          <input
+            [(ngModel)]="name"
+            [ngModelOptions]="{ standalone: true }"
+            type="text"
+            class="form-control top"
+            (keyup.enter)="addPerson()"
+            id="person_input"
+            placeholder="Enter Person Name"
+          />
+        </div>
+        <div class="col-4" style="padding-right: 0">
+          <button
+            type="button"
+            class="btn btn-success top"
+            style="width: 100%;"
+            (click)="addPerson()"
+          >
+            Add
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
